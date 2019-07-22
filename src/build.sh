@@ -35,5 +35,7 @@ cd ${build_dir}
 [ -d "./.gradle" ] && rm -rf ./.gradle
 
 ./build.py
+rc=$?; if [[ $rc != 0 ]]; then exit $rc; fi
+
 find -name "*.apk" -type f | xargs -r -I{} cp -f {} /proj
-exit
+rc=$?; exit $rc

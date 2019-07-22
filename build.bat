@@ -13,9 +13,6 @@ exit /b 100
 
 :BUILD
 
-echo good!
-exit /b 0
-
 call clean.bat
 docker build -t brainslugs83/ovrsdk:latest .
 docker images
