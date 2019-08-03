@@ -12,7 +12,26 @@ It may also be possible to build for other Android based VR platforms that the S
 docker pull brainslugs83/ovrsdk
 ```
 
-### Usage:
+This may take some time to download everything, but it's much quicker than installing Android Studio and configuring a thousand other prerequisites. 😉
+
+### Example Usage:
+Here's an example showing how you can compile QuakeQuest (a popular open source project, which can be found here: https://github.com/DrBeef/QuakeQuest)
+
+```
+:: Clone the QuakeQuest Repository locally:
+git clone https://github.com/DrBeef/QuakeQuest.git
+cd QuakeQuest
+
+:: Kick off a Build
+docker run -it --rm -v %cd%:/proj brainslugs83/ovrsdk /opt/build.sh
+
+:: Verify the build output
+dir *.apk
+```
+
+It's that easy, no need to have anything else installed or configured!
+
+### General Usage:
 Just run an instance of the image with `/proj` mapped to your local project root folder and run `/opt/build.sh`; Since an absolute path is required, I recommend taking advantage of the `%cd%` environment variable.
 
 The following command will build a project located at `D:\path\to\my\project\`:
@@ -35,7 +54,7 @@ When it completes, it should dump any `.apk` files produced by the build back in
    cd DockerOvrSdk
    ```
 
-2. Download the `ovr_sdk_mobile_1.23.zip` into the `src` folder from this site: https://developer.oculus.com/downloads/package/oculus-mobile-sdk/
+2. Download the `ovr_sdk_mobile_*.zip` into the `src` folder from this site: https://developer.oculus.com/downloads/package/oculus-mobile-sdk/
 
 3. Kick off the build
    ```

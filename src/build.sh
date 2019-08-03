@@ -30,11 +30,13 @@ find -name "*.apk" -type f | xargs -r rm
 
 build_dir=$(find -name "build.py" -type f | xargs dirname)
 cd ${build_dir}
+cp ${OVR_HOME}/*.keystore .
+
 [ -d "./build" ] && rm -rf ./build
 [ -d "./.externalNativeBuild" ] && rm -rf ./.externalNativeBuild
 [ -d "./.gradle" ] && rm -rf ./.gradle
 
-./build.py
+./build.py -n
 rc=$?; if [[ $rc != 0 ]]; then exit $rc; fi
 
 find -name "*.apk" -type f | xargs -r -I{} cp -f {} /proj
