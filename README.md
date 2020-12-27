@@ -14,7 +14,7 @@ docker pull brainslugs83/ovrsdk
 
 This may take some time to download everything, but it's much quicker than installing Android Studio and configuring a thousand other prerequisites. 😉
 
-### Example Usage:
+### Example Usage (Windows):
 Here's an example showing how you can compile QuakeQuest (a popular open source project, which can be found here: https://github.com/DrBeef/QuakeQuest)
 
 ```
@@ -30,6 +30,21 @@ dir *.apk
 ```
 
 It's that easy, no need to have anything else installed or configured!
+
+### Example Usage (Linux):
+Here's the same Example as above, but slightly modified for Linux usage:
+
+```
+:: Clone the QuakeQuest Repository locally:
+git clone https://github.com/DrBeef/QuakeQuest.git
+cd QuakeQuest
+
+:: Kick off a Build
+docker run -it --rm -v $(pwd):/proj brainslugs83/ovrsdk /opt/build.sh
+
+:: Verify the build output
+ls *.apk
+```
 
 ### General Usage:
 Just run an instance of the image with `/proj` mapped to your local project root folder and run `/opt/build.sh`; Since an absolute path is required, I recommend taking advantage of the `%cd%` environment variable.
