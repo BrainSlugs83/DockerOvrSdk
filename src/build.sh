@@ -30,7 +30,12 @@ find -name "*.apk" -type f | xargs -r rm
 
 build_dir=$(find -name "build.py" -type f | xargs dirname)
 cd ${build_dir}
-cp ${OVR_HOME}/*.keystore .
+cp -n ${OVR_HOME}/*.keystore . || true
+cp -n ${OVR_HOME}/fix-gradle.py . || true
+chmod +x fix-gradle.py
+./fix-gradle.py > build.gradle.new
+mv build.gradle build.gradle.old
+mv build.gradle.new build.gradle
 
 [ -d "./build" ] && rm -rf ./build
 [ -d "./.externalNativeBuild" ] && rm -rf ./.externalNativeBuild
