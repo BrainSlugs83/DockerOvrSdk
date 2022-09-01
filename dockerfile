@@ -13,8 +13,6 @@ LABEL maintainer "brainslugs83@gmail.com"
 ENV _JAVA_OPTIONS -XX:+UseContainerSupport
 RUN ln -s /usr/bin/python3 /usr/bin/python
 
-# apt-get install -y openjdk-17-jdk && \
-
 RUN apt-get update -y && \
     apt-get install -y make dos2unix nano file && \
     apt-get clean && \
