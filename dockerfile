@@ -41,9 +41,9 @@ RUN cd ${ANDROID_SDK_ROOT}/cmdline-tools/tools/bin && \
             "build-tools;27.0.3" "build-tools;28.0.3" "build-tools;29.0.3"
 
 ENV PATH=${PATH}:${JAVA_HOME}/bin
-ENV ANDROID_NDK=${ANDROID_SDK_ROOT}/ndk-bundle
-ENV ANDROID_NDK_ROOT=${ANDROID_SDK_ROOT}/ndk-bundle
-ENV ANDROID_NDK_HOME=${ANDROID_SDK_ROOT}/ndk-bundle
+ENV ANDROID_NDK=${ANDROID_SDK_ROOT}/ndk/21.4.7075529/
+ENV ANDROID_NDK_ROOT=${ANDROID_SDK_ROOT}/ndk/21.4.7075529/
+ENV ANDROID_NDK_HOME=${ANDROID_SDK_ROOT}/ndk/21.4.7075529/
 
 # Install OVR SDK, compile one of the samples so that the main libs 
 #   are precompiled and setup, then empty out the VrSamples folder.
